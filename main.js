@@ -18,10 +18,18 @@ const rowElements = document.querySelectorAll(".row")
 function getCellElements (currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
 }
-
-
 // YOUR CODE GOES HERE
-
+replaceAllButton.addEventListener('click', function (){
+    for( let rowIndex = 0; rowIndex < rowElements.length; rowIndex += 1){
+        let cellArray = getCellElements(rowElements[rowIndex]) 
+        for(let cellIndex = 0; cellIndex < cellArray.length; cellIndex += 1){
+            if (cellArray[cellIndex].innerText.includes(findInput.value)){
+                cellArray[cellIndex].innerHTML = cellArray[cellIndex].innerHTML.replace(findInput.value,replaceInput.value)
+            } 
+            
+        }
+    }
+})
 
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
